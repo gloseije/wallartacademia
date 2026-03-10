@@ -1,0 +1,27 @@
+@theme {
+	--color-background: #ffffff;
+	--color-foreground: #09090b;
+
+	--color-primary: #09090b;
+	--color-primary-foreground: #ffffff;
+
+	--color-secondary: #f4f4f5;
+	--color-secondary-foreground: #09090b;
+
+	--color-accent: #27272a;
+	--color-accent-foreground: #ffffff;
+
+	--color-muted: #f4f4f5;
+	--color-muted-foreground: #71717a;
+
+	--color-card: #ffffff;
+	--color-card-border: rgba(0, 0, 0, 0.08);
+
+	--color-glass: rgba(255, 255, 255, 0.8);
+	--color-glass-border: rgba(0, 0, 0, 0.1);
+
+	--color-border: #e4e4e7;
+
+	--font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+	--font-heading: "Nexa", "Outfit", ui-sans-serif, system-ui, sans-serif;
+}

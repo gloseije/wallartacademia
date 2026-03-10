@@ -1,0 +1,154 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id            String   @id @default(cuid())
+  name          String?  @db.VarChar
+  email         String   @unique @db.VarChar
+  emailVerified Boolean  @default(false)
+  createdAt     DateTime @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt     DateTime @updatedAt @map("updated_at") @db.Timestamp(6)
+
+  password        String?          @db.VarChar
+  image           String?          @db.VarChar
+  roles           RoleUser[]
+  participants    Participant[]
+  followedLessons FollowedLesson[]
+  sessions        Session[]
+  accounts        Account[]
+
+  @@map("users")
+}
+
+model Role {
+  id        Int        @id @default(autoincrement())
+  name      String     @db.VarChar
+  createdAt DateTime   @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt DateTime   @updatedAt @map("updated_at") @db.Timestamp(6)
+  users     RoleUser[]
+
+  @@map("roles")
+}
+
+model Course {
+  id           Int           @id @default(autoincrement())
+  title        String        @db.VarChar
+  slug         String        @unique @db.VarChar
+  thumbnail    String        @db.VarChar
+  description  String        @db.Text
+  createdAt    DateTime      @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt    DateTime      @updatedAt @map("updated_at") @db.Timestamp(6)
+  participants Participant[]
+
+  @@map("courses")
+}
+
+model Lesson {
+  id         Int              @id @default(autoincrement())
+  title      String           @db.VarChar
+  content    String           @db.Text
+  video      String           @db.VarChar
+  createdAt  DateTime         @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt  DateTime         @updatedAt @map("updated_at") @db.Timestamp(6)
+  followedBy FollowedLesson[]
+
+  @@map("lessons")
+}
+
+model RoleUser {
+  id        Int      @id @default(autoincrement())
+  userId    String   @map("user_id")
+  roleId    Int      @map("role_id")
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  role      Role     @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamp(6)
+
+  @@map("role_user")
+}
+
+model Participant {
+  id        Int      @id @default(autoincrement())
+  userId    String?  @map("user_id")
+  courseId  Int?     @map("course_id")
+  user      User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  course    Course?  @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamp(6)
+
+  @@map("participants")
+}
+
+model FollowedLesson {
+  id        Int      @id @default(autoincrement())
+  userId    String   @map("user_id")
+  lessonId  Int      @map("lesson_id")
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lesson    Lesson   @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamp(6)
+
+  @@map("followed_lessons")
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  expiresAt DateTime
+  token     String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  ipAddress String?
+  userAgent String?
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+model Account {
+  id                    String    @id @default(cuid())
+  accountId             String
+  providerId            String
+  userId                String
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  accessToken           String?
+  refreshToken          String?
+  idToken               String?
+  accessTokenExpiresAt  DateTime?
+  refreshTokenExpiresAt DateTime?
+  scope                 String?
+  password              String?
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  @@map("accounts")
+}
+
+model Verification {
+  id         String    @id @default(cuid())
+  identifier String
+  value      String
+  expiresAt  DateTime
+  createdAt  DateTime? @default(now())
+  updatedAt  DateTime?
+
+  @@map("verifications")
+}
+
+model EmailVerificationOtp {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  salt      String
+  codeHash  String
+  attempts  Int      @default(0)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("email_verification_otps")
+}

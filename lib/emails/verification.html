@@ -1,0 +1,23 @@
+<p class="email-text">Bonjour <strong>{{userName}}</strong>,</p>
+<p class="email-text">
+    Merci de vous être inscrit sur <strong>Wallart Academia</strong>. Pour valider votre compte et commencer l'aventure,
+    merci de confirmer votre adresse email.
+</p>
+
+<p class="email-text">
+    Voici votre code de vérification :
+</p>
+
+<div class="email-otp-wrapper">
+    <div class="email-otp-code">
+        {{otpCode}}
+    </div>
+</div>
+
+<p class="email-text">
+    Ce code expire dans <strong>{{expiresMinutes}} minutes</strong>.
+</p>
+
+<p class="email-text">
+    Vous pouvez aussi cliquer sur le bouton ci-dessous pour ouvrir la page de saisie du code.
+</p>
