@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "postinstall": "prisma generate",
     "test:db": "npx tsx tests/db-connection.test.ts",
     "test:email": "npx tsx tests/email-sending.test.ts"
   },
