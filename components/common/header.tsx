@@ -72,7 +72,7 @@ export default function Header() {
 							className="flex items-center space-x-1 group"
 						>
 							<Image
-								src="/wallartacademia.png"
+								src="/wallart.png"
 								alt="Logo"
 								width={100}
 								height={100}
