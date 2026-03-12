@@ -203,11 +203,6 @@ export function CoursesExplorer() {
 
 				<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
 					<div className="text-center max-w-3xl mx-auto">
-						<div className="inline-flex items-center rounded-full px-4 py-1.5 text-sm font-medium bg-stone-200/80 text-stone-700 ring-1 ring-inset ring-stone-400/30 shadow-md backdrop-blur-sm mb-8">
-							<Sparkles className="w-4 h-4 mr-2" />
-							{COURSES.length} ateliers créatifs
-						</div>
-
 						<h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-stone-800 tracking-tight mb-6 leading-[1.08]">
 							Explorez l&apos;univers
 							<br />
@@ -256,9 +251,7 @@ export function CoursesExplorer() {
 								placeholder="Rechercher un cours, un artiste..."
 								className="w-full pl-14 pr-14 py-5 bg-white/80 backdrop-blur-sm border border-stone-200/80 rounded-2xl focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500/30 focus:bg-white transition-all text-stone-800 placeholder:text-stone-400 font-medium text-base shadow-lg"
 								value={searchQuery}
-								onChange={(e) =>
-									setSearchQuery(e.target.value)
-								}
+								onChange={(e) => setSearchQuery(e.target.value)}
 								onFocus={() => setIsSearchFocused(true)}
 								onBlur={() => setIsSearchFocused(false)}
 							/>
@@ -510,7 +503,8 @@ export function CoursesExplorer() {
 											} else if (currentPage <= 3) {
 												pageNum = i + 1;
 											} else if (
-												currentPage >= totalPages - 2
+												currentPage >=
+												totalPages - 2
 											) {
 												pageNum = totalPages - 4 + i;
 											} else {
@@ -558,10 +552,7 @@ export function CoursesExplorer() {
 										<button
 											onClick={() =>
 												setCurrentPage((p) =>
-													Math.min(
-														totalPages,
-														p + 1,
-													),
+													Math.min(totalPages, p + 1),
 												)
 											}
 											disabled={
@@ -601,4 +592,3 @@ export function CoursesExplorer() {
 		</>
 	);
 }
-
