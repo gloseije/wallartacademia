@@ -213,10 +213,8 @@ export default function Header() {
 				{isMobileMenuOpen && (
 					<div className="md:hidden absolute left-0 right-0 top-full mt-2 mx-4 p-4 bg-white rounded-2xl shadow-xl border border-gray-100 backdrop-blur-lg animate-in slide-in-from-top-5 duration-200">
 						<div className="flex flex-col space-y-4">
+							<MobileNavLink href="/">Accueil</MobileNavLink>
 							<MobileNavLink href="/courses">Cours</MobileNavLink>
-							<MobileNavLink href="/instructor">
-								Instructeur
-							</MobileNavLink>
 							<MobileNavLink href="/about">
 								À propos
 							</MobileNavLink>
