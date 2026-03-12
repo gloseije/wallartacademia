@@ -13,7 +13,7 @@ export default function AuthLayout({
 			<div className="absolute bottom-20 left-0 -z-10 h-72 w-72 bg-secondary/10 blur-[100px] rounded-full animate-pulse-slow object-delay-1000" />
 
 			<div className="w-full max-w-lg animate-fade-in-up">
-				<div className="glass-card rounded-[2.5rem] p-8 md:p-12 my-0 lg:my-6 shadow-2xl border border-black/10 shadow-primary/5">
+				<div className="glass-card rounded-[2.5rem] p-4 sm:p-8 md:p-12 my-0 lg:my-6 shadow-2xl border border-black/10 shadow-primary/5">
 					<Image
 						src="/logo.png"
 						alt="Logo"

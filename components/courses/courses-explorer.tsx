@@ -196,7 +196,7 @@ export function CoursesExplorer() {
 	return (
 		<>
 			{/* HERO BANNER */}
-			<section className="relative pt-32 pb-20 lg:pt-44 lg:pb-28 overflow-hidden bg-[#faf7f2]">
+			<section className="relative pt-48 pb-20 lg:pt-44 lg:pb-28 overflow-hidden bg-[#faf7f2]">
 				<div className="absolute top-20 left-10 w-96 h-96 bg-amber-200/20 rounded-full blur-3xl -z-10" />
 				<div className="absolute bottom-20 right-10 w-80 h-80 bg-indigo-200/20 rounded-full blur-3xl -z-10" />
 				<div className="absolute top-1/3 left-1/4 w-64 h-64 bg-rose-200/20 rounded-full blur-3xl -z-10" />

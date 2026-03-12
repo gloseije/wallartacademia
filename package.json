@@ -1,13 +1,13 @@
 {
   "name": "wallartacademia",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "postinstall": "prisma generate && npm run test:db && npm run test:email",
+    "postinstall": "prisma generate",
     "test:db": "npx tsx tests/db-connection.test.ts",
     "test:email": "npx tsx tests/email-sending.test.ts"
   },

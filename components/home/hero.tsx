@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Palette, Brush } from "lucide-react";
+import { Brush } from "lucide-react";
 
 export default function HeroSection() {
 	return (
-		<main className="relative pt-24 pb-16 md:pt-32 md:pb-20 lg:pt-40 lg:pb-32 overflow-hidden bg-[#faf7f2]">
+		<main className="relative pt-48 pb-16 md:pt-32 md:pb-20 lg:pt-40 lg:pb-32 overflow-hidden bg-[#faf7f2]">
 			{/* Texture de fond (toile) - visible sur tous */}
 			<div className="absolute inset-0 -z-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDQwIDQwIj48cGF0aCBkPSJNMjAgMjBhMjAgMjAgMCAwIDEgMjAgMjAgMjAgMjAgMCAwIDEtNDAgMCAyMCAyMCAwIDAgMSAyMC0yMHoiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuMDMiLz48L3N2Zz4=')] repeat opacity-30" />
 

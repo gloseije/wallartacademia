@@ -8,7 +8,7 @@ export default function Footer() {
 				<div className="flex flex-col md:flex-row justify-between items-center gap-6">
 					<div className="flex items-center gap-2">
 						<Image
-							src="/wallartacademia.PNG"
+							src="/wallartacademia.png"
 							alt="logo"
 							width={6004}
 							height={3501}
